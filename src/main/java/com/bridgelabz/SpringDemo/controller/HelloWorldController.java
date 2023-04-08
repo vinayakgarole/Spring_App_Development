@@ -1,5 +1,6 @@
 package com.bridgelabz.SpringDemo.controller;
 
+import com.bridgelabz.SpringDemo.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,5 +19,10 @@ public class HelloWorldController {
     @GetMapping("/param/{name}")
     public String sayHelloParam(@PathVariable String name) {
         return "Hello " + name + "!";
+    }
+
+    @PostMapping("/post")
+    public String sayHello(@RequestBody User user) {
+        return "Hello" + user.getFirstName() + " " + user.getLastName() + "!";
     }
 }
